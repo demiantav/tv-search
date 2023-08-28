@@ -47,7 +47,9 @@ const mostrarProgramas = async (show) => {
       if(programas[i].show.image === null){
         
         card.innerHTML=
-             `<p>${programas[i].show.name}</p>
+             `<img src="http://static.tvmaze.com/images/no-img/no-img-portrait-text.png" alt="${programas[i].show.name}" class="show-img"></img>
+              <p class="show-title">${programas[i].show.name}<p>
+              
              `
 
 
