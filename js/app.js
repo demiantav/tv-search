@@ -27,6 +27,17 @@ const mostrarProgramas = async (show) => {
    `
 
     const programas = await getShows(`https://api.tvmaze.com/search/shows?q=${show.value}`);
+
+    if(programas.length === 0){
+
+      const er = d.createElement("p");
+
+      er.textContent= `No existen resutados para la busqueda`;
+      
+      $fragment.appendChild(er);
+
+
+    }
     
     for(let i = 0; i<programas.length; i++){
 
@@ -56,6 +67,7 @@ const mostrarProgramas = async (show) => {
     }
 
     $show_container.replaceChildren($fragment);
+    console.log("si")
         
 }
 
