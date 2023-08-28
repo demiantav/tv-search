@@ -17,6 +17,15 @@ d.addEventListener("submit", e => {
 
 const mostrarProgramas = async (show) => {
 
+  $show_container.innerHTML= 
+   `<div class="metronome">
+   <div class="metronome__dot"></div>
+   <div class="metronome__dot"></div>
+   <div class="metronome__dot"></div>
+   <div class="metronome__dot"></div>
+ </div>
+   `
+
     const programas = await getShows(`https://api.tvmaze.com/search/shows?q=${show.value}`);
     
     for(let i = 0; i<programas.length; i++){
@@ -35,8 +44,8 @@ const mostrarProgramas = async (show) => {
 
         card.innerHTML=
              `<img src="${programas[i].show.image.original}" alt="${programas[i].show.name}" class="show-img"></img>
-              <p>${programas[i].show.name}</p>
-              <p>${programas[i].show.summary}</p>
+              <p class="show-title">${programas[i].show.name}<p>
+              
              `
 
 
@@ -46,7 +55,7 @@ const mostrarProgramas = async (show) => {
     
     }
 
-    $show_container.appendChild($fragment);
+    $show_container.replaceChildren($fragment);
         
 }
 
